@@ -9,11 +9,11 @@ yarn docs:build
 # navigate into the build output directory
 cd docs/.vuepress/dist
 
+# if you are deploying to a custom domain
+echo 'https://peaceful-almeida-d4a57c.netlify.com' > CNAME
+
 git init
 git add -A
 git commit -m 'deploy'
-
-# if you are deploying to https://<USERNAME>.github.io/<REPO>
-git push -f https://github.com/zvinless/testpress-deploy.git master:gh-pages
 
 cd -
