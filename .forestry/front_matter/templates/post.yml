@@ -7,3 +7,5 @@ fields:
   label: title
   name: title
   description: the title
+pages:
+- docs/new-post.md
