@@ -7,5 +7,10 @@ fields:
   label: title
   name: title
   description: the title
+- type: datetime
+  label: date
+  name: date
+  config:
+    required: true
 pages:
 - docs/new-post.md
