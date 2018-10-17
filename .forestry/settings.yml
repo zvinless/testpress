@@ -17,4 +17,4 @@ front_matter_path: ''
 use_front_matter_path: false
 file_template: ":filename:"
 build:
-  publish_command: deploy.sh
+  publish_command: yarn docs:build
