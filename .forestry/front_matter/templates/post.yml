@@ -12,5 +12,6 @@ fields:
   name: date
   config:
     required: true
+  default: 2018-10-16 07:00:00 +0000
 pages:
 - docs/new-post.md
