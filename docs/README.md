@@ -7,5 +7,4 @@ test
 more test
 
 | a | b |
-
 | table | time |
