@@ -2,7 +2,7 @@ backend:
   name: github
   repo: zvinless/testpress # Branch to update (optional; defaults to master)
 media_folder: docs/.vuepress/public/img
-public_folder: docs/.vuepress/dist/
+public_folder: /img/
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
     label: "Blog" # Used in the UI
