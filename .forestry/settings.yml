@@ -8,7 +8,7 @@ sections:
   path: docs
   label: Posts
   create: documents
-  match: "**/*"
+  match: "**/*.md"
   templates:
   - post
 upload_dir: docs/.vuepress/public
