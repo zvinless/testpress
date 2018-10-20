@@ -7,3 +7,5 @@ test
 more test
 
 no more table :(
+
+![](/images/screenshot2.png)
