@@ -1,6 +1,6 @@
 backend:
   name: github
-  branch: zvinless/testpress # Branch to update (optional; defaults to master)
+  repo: zvinless/testpress # Branch to update (optional; defaults to master)
 media_folder: static/images/uploads
 public_folder: /images/uploads
 collections:
