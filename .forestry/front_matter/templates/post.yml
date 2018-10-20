@@ -13,6 +13,9 @@ fields:
   config:
     required: true
   default: ''
+- type: tag_list
+  label: Tags
+  name: tags
 pages:
 - docs/new-post-x.md
 - docs/new-post.md
