@@ -14,5 +14,6 @@ fields:
     required: true
   default: ''
 pages:
+- docs/wow.md
 - docs/new-post-x.md
 - docs/new-post.md
