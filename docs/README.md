@@ -8,4 +8,4 @@ more test
 
 no more table :(
 
-![](/images/screenshot2.png)
+![hi](/images/screenshot2.png)
