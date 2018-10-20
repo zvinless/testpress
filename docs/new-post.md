@@ -8,3 +8,5 @@ this is a big post about something
 > and here is a quote
 
     some code
+
+![](/images/screenshot.png)
