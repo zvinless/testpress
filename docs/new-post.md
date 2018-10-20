@@ -9,4 +9,4 @@ this is a big post about something
 
     some code
 
-![](/images/screenshot.png)
+![](/img/screenshot2.png)
