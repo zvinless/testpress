@@ -11,7 +11,7 @@ sections:
   match: "**/*"
   templates:
   - post
-upload_dir: public
+upload_dir: docs/.vuepress/public
 public_path: ''
 front_matter_path: ''
 use_front_matter_path: 
