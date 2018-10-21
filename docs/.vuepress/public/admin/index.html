@@ -34,7 +34,7 @@
                 { name: 'centered', label: 'Centered', widget: 'boolean' }
             ],
             patterns: [
-                /^<SuperImage src="(.*)" alt="(.*)" centered="(.*)" \/>$/
+                /^<SuperImage src="(.*)" alt="(.*)" centered="(.*)"\/>$/
             ],
             fromBlock: match => {
                 return match && {
