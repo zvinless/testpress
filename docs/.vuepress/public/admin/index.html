@@ -40,10 +40,10 @@
                 }
             },
             toBlock: function(o) {
-                return `<img src="${o.src || ''}" class="${o.centered ? 'has-text-centered' : ''}"`
+                return `<img src="${o.src || ''}" class="${o.centered ? 'has-text-centered' : ''}" />`
             },
             toPreview: function(o, getAsset) {
-                return `<img src="${getAsset(o.src) || ''}" class="${o.centered ? 'has-text-centered' : ''}"`
+                return `<img src="${getAsset(o.src) || ''}" class="${o.centered ? 'has-text-centered' : ''}" />`
             }
         })
     </script>
