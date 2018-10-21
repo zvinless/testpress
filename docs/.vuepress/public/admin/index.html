@@ -34,7 +34,7 @@
                 { name: 'centered', label: 'Centered', widget: 'boolean' }
             ],
             patterns: [
-                /^{{ SuperImage src="(.*)" alt="(.*)" centered="(.*)" }}$/
+                /^SuperImage src="(.*)" alt="(.*)" centered="(.*)"$/
             ],
             fromBlock: match => {
                 return match && {
@@ -44,7 +44,7 @@
                 }
             },
             toBlock: o => {
-                return `{{ SuperImage src="${o.src}" alt="${o.name}" centered="${o.centered}" }}`
+                return `SuperImage src="${o.src}" alt="${o.name}" centered="${o.centered}"`
             },
             toPreview: (o, getAsset) => {
                 return `<image src="${getAsset(o.src)}" alt="${o.name}"/>`
