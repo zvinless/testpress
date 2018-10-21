@@ -49,20 +49,27 @@
             id: "superimage",
             label: "Super Image",
             icon: 'image',
-            fields: [{name: 'src', label: 'Image source', widget: 'string'}, {name: 'width', label: 'Width', widget: 'string'}],
-            pattern: /^<superimage (\S+)\s?>/,
+            fields: [
+                { name: 'src', label: 'Image source', widget: 'image', required: true },
+                { name: 'name', label: 'Image name', widget: 'string', default: 'image' },
+                { name: 'width', label: 'Width', widget: 'string', default: '100%' },
+                { name: 'height', label: 'Width', widget: 'string', default: '100%' },
+                { name: 'centered', label: 'Width', widget: 'boolean', default: true }
+            ],
+            pattern: /^\s*?<img src=(\S+) alt=(\S+) width=(\S+) height=(\S+)\/>/,
             fromBlock: function(match) {
                 return {
-                    id: match[1]
+                    src: match[1],
+                    name: match[2],
+                    width: match[3],
+                    height: match[4]
                 }
             },
-            toBlock: function(obj) {
-                return 'superimage ' + obj.src
+            toBlock: function(o) {
+                return `<img src=${o.src} alt=${o.name} width=${o.width} height=${o.height}/>`
             },
-            toPreview: function(obj) {
-                return (
-                    'superduperimagepreview'
-                )
+            toPreview: function(o) {
+                return `<img src=${o.src} alt=${o.name} width=${o.width} height=${o.height}/>`
             }
         })
     </script>
