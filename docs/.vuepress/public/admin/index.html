@@ -27,35 +27,29 @@
         CMS.registerPreviewTemplate("docs", PostPreview);
         CMS.registerEditorComponent({
             // Internal id of the component
-            id: "image",
+            id: "youtube",
             // Visible label
-            label: "Super Image",
+            label: "Youtube",
             // Fields the user need to fill out when adding an instance of the component
-            fields: [
-                // { name: 'src', label: 'Image', widget: 'image', default: 'hi' },
-                { name: 'alt', label: 'Alt Text', default: 'whattheheck' },
-                // { name: 'width', label: 'Width', default: '100' },
-                // { name: 'height', label: 'Height', default: '100' }
-            ],
+            fields: [{ name: 'id', label: 'Youtube Video ID', widget: 'string', default: 'hello' }],
             // Pattern to identify a block as being an instance of this component
-            pattern: /^<img src="(.+)" alt="(.+)" width="(.+)" height="(.+)" \/>$/,
+            pattern: /^youtube (\S+)$/,
             // Function to extract data elements from the regexp match
             fromBlock: function (match) {
-                return match && {
-                    src: match[1],
-                    alt: match[2],
-                    width: match[3],
-                    height: match[4]
+                return {
+                    id: match[1]
                 };
             },
             // Function to create a text block from an instance of this component
-            toBlock: function(o) {
-                return `<img src="${o.src || ''}" alt="${o.alt || ''}" width="${o.width || ''}" height="${o.height || ''}" />`
+            toBlock: function (obj) {
+                return 'youtube ' + obj.id;
             },
             // Preview output for this component. Can either be a string or a React component
             // (component gives better render performance)
-            toPreview: function(o, getAsset) {
-                return `<img src="${getAsset(o.src) || ''}" alt="${o.alt || ''}" width="${o.width || ''}" height="${o.height || ''}" />`
+            toPreview: function (obj) {
+                return (
+                    '<img src="http://img.youtube.com/vi/' + obj.id + '/maxresdefault.jpg" alt="Youtube Video"/>'
+                );
             }
         });
     </script>
