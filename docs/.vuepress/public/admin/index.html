@@ -33,7 +33,7 @@
                 { name: 'name', label: 'Image name', widget: 'string' },
                 { name: 'centered', label: 'Centered', widget: 'boolean' }
             ],
-            pattern: /^\[(\S*)\]\((\S*)\)({\.\S*})?$/,
+            pattern: /^!\[(\S*)\]\((\S*)\)({\.\S*})?$/,
             fromBlock: match => {
                 return match && {
                     src: match[1],
