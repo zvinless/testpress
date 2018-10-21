@@ -8,5 +8,3 @@ more test
 no more table :(
 
 ![hi](/img/screenshot2.png)
-
-{{< youtube 9L-oWDysxFs >}}
