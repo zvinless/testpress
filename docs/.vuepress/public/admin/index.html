@@ -44,10 +44,10 @@
                 }
             },
             toBlock: o => {
-                return `<div${o.centered ? ' class="has-text-centered"' : ''}><img src="${o.src}" alt="${o.name}" /><div>`
+                return `<div${o.centered ? ' class="has-text-centered"' : ''}><img src="${o.src}" alt="${o.name}" /></div>`
             },
             toPreview: (o, getAsset) => {
-                return `<div${o.centered ? ' class="has-text-centered"' : ''}><img src="${getAsset(o.src)}" alt="${o.name}" /><div>`
+                return `<div${o.centered ? ' class="has-text-centered"' : ''}><img src="${getAsset(o.src)}" alt="${o.name}" /></div>`
             }
         })
         CMS.registerEditorComponent({
