@@ -56,20 +56,29 @@
                 { name: 'height', label: 'Width', widget: 'string', default: '100%' },
                 { name: 'centered', label: 'Width', widget: 'boolean', default: true }
             ],
-            pattern: /^\s*?<img src=(\S+) alt=(\S+) width=(\S+) height=(\S+)\/>/,
+            pattern: /aaaaa/, ///^\s*?<img src=(\S+) alt=(\S+) width=(\S+) height=(\S+)\/>/,
             fromBlock: function(match) {
                 return {
-                    src: match[1],
-                    name: match[2],
-                    width: match[3],
-                    height: match[4]
+                    src: 'abcdefg',
+                    name: 'asdf',
+                    width: '100%',
+                    height: '100%',
+                    centered: true
                 }
+                // return {
+                //     src: match[1],
+                //     name: match[2],
+                //     width: match[3],
+                //     height: match[4]
+                // }
             },
             toBlock: function(o) {
-                return `<img src=${o.src} alt=${o.name} width=${o.width} height=${o.height}/>`
+                return 'aaaaa'
+                // return `<img src=${o.src} alt=${o.name} width=${o.width} height=${o.height}/>`
             },
             toPreview: function(o) {
-                return `<img src=${o.src} alt=${o.name} width=${o.width} height=${o.height}/>`
+                return 'aaaaa'
+                // return `<img src=${o.src} alt=${o.name} width=${o.width} height=${o.height}/>`
             }
         })
     </script>
