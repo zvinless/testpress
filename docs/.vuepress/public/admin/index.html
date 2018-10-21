@@ -43,8 +43,7 @@
             toBlock: o =>
                 `[${o.name || ''}](${o.src || ''})${o.centered ? '{.has-text-centered}' : ''}`,
             toPreview: (o, getAsset) => {
-                return
-                    `<img src="${getAsset(o.src) || ''}" class="${o.centered ? 'has-text-centered' : ''}" />`
+                return `<img src="${getAsset(o.src) || ''}" class="${o.centered ? 'has-text-centered' : ''}" />`
             }
         })
         CMS.registerEditorComponent({
