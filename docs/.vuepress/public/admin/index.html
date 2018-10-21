@@ -26,8 +26,8 @@
 
         CMS.registerPreviewTemplate("docs", PostPreview);
         CMS.registerEditorComponent({
-            id: 'image',
-            label: 'Image',
+            id: 'superimage',
+            label: 'Super Image',
             fields: [
                 { name: 'src', label: 'Image source', widget: 'image' },
                 { name: 'name', label: 'Image name', widget: 'string' },
@@ -66,6 +66,21 @@
             },
             toBlock: o => `${o.text}{.${o.class}}`,
             toPreview: (o, getAsset) => h('p', { className: o.class }, o.text)
+        })
+        CMS.registerEditorComponent({
+            id: 'div',
+            label: 'Div',
+            fields: [
+                { name: 'text', label: 'Inner Text' }
+            ],
+            pattern: /^<div>(.*)<\/div>$/,
+            fromBlock: match => {
+                return match && {
+                    text: match[1],
+                }
+            },
+            toBlock: o => `<div>${o.text}</div>`,
+            toPreview: (o, getAsset) => `<div>${o.text}</div>`,
         })
         CMS.registerEditorComponent({
             id: "youtube",
