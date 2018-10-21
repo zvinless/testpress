@@ -7,4 +7,4 @@ more test
 
 no more table :(
 
-![hi](/img/screenshot2.png)
+<SuperImage src="/img/screenshot2.png" alt="hi" centered="true"/>

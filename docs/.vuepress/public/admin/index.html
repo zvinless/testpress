@@ -34,20 +34,20 @@
                 { name: 'centered', label: 'Centered', widget: 'boolean' }
             ],
             patterns: [
-                /^<div( class="has-text-centered")?><img src="(.*)" alt="(.*)"\s*\/><\/div>$/
+                /^<SuperImage src="(.*)" alt="(.*)" centered="(.*)" \/>$/
             ],
             fromBlock: match => {
                 return match && {
-                    src: match[2],
-                    name: match[3],
-                    centered: match[1] === ' class="has-text-centered"'
+                    src: match[1],
+                    name: match[2],
+                    centered: match[3] === 'true'
                 }
             },
             toBlock: o => {
-                return `<div${o.centered ? ' class="has-text-centered"' : ''}><img src="${o.src}" alt="${o.name}" /></div>`
+                return `<SuperImage src="${o.src}" alt="${o.name}" centered="${o.centered}"/>`
             },
             toPreview: (o, getAsset) => {
-                return `<div${o.centered ? ' class="has-text-centered"' : ''}><img src="${getAsset(o.src)}" alt="${o.name}" /></div>`
+                return `<SuperImage src="${getAsset(o.src)}" alt="${o.name}" centered="${o.centered}"/>`
             }
         })
         CMS.registerEditorComponent({
