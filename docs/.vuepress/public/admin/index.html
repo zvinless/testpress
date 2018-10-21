@@ -33,18 +33,22 @@
                 { name: 'name', label: 'Image name', widget: 'string' },
                 { name: 'centered', label: 'Centered', widget: 'boolean' }
             ],
-            pattern: /^<img src="(.*)" alt="(.*)" class="(.*)"\s*\/>$/,
+            patterns: [
+                /^<div( class="has-text-centered")?><img src="(.*)" alt="(.*)"\s*\/><\/div>$/
+            ],
             fromBlock: match => {
                 return match && {
-                    src: match[1],
-                    name: match[2],
-                    centered: match.length > 3 && match[3] === 'has-text-centered'
+                    src: match[2],
+                    name: match[3],
+                    centered: match[1] === ' class="has-text-centered"'
                 }
             },
-            toBlock: o =>
-                `<img src="${o.src}" alt="${o.name}" class="${o.centered ? 'has-text-centered' : ''}" />`,
-            toPreview: (o, getAsset) =>
-                `<img src="${getAsset(o.src)}" alt="${o.name}" class="${o.centered ? 'has-text-centered' : ''}" />`,
+            toBlock: o => {
+                return `<div${o.centered ? ' class="has-text-centered"' : ''}><img src="${o.src}" alt="${o.name}" /><div>`
+            },
+            toPreview: (o, getAsset) => {
+                return `<div${o.centered ? ' class="has-text-centered"' : ''}><img src="${getAsset(o.src)}" alt="${o.name}" /><div>`
+            }
         })
         CMS.registerEditorComponent({
             id: 'classed',
