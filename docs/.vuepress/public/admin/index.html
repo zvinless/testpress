@@ -26,35 +26,14 @@
 
         CMS.registerPreviewTemplate("docs", PostPreview);
         CMS.registerEditorComponent({
-            id: "youtube",
-            label: "Youtube",
-            icon: 'video',
-            fields: [{name: 'id', label: 'Youtube Video ID'}],
-            pattern: /^youtube (\S+)\s?/,
-            fromBlock: function(match) {
-                return {
-                    id: match[1]
-                }
-            },
-            toBlock: function(obj) {
-                return 'youtube ' + obj.id
-            },
-            toPreview: function(obj) {
-                return (
-                    '<img src="http://img.youtube.com/vi/' + obj.id + '/maxresdefault.jpg" alt="Youtube Video"/>'
-                )
-            }
-        })
-        CMS.registerEditorComponent({
             id: "superimage",
             label: "Super Image",
-            icon: 'image',
             fields: [
                 { name: 'src', label: 'Image source', widget: 'image', required: true },
                 { name: 'name', label: 'Image name', widget: 'string', default: 'image' },
                 { name: 'width', label: 'Width', widget: 'string', default: '100%' },
-                { name: 'height', label: 'Width', widget: 'string', default: '100%' },
-                { name: 'centered', label: 'Width', widget: 'boolean', default: true }
+                { name: 'height', label: 'Height', widget: 'string', default: '100%' },
+                { name: 'centered', label: 'Centered', widget: 'boolean', default: true }
             ],
             pattern: /aaaaa/, ///^\s*?<img src=(\S+) alt=(\S+) width=(\S+) height=(\S+)\/>/,
             fromBlock: function(match) {
