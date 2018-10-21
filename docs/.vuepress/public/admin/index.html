@@ -33,7 +33,7 @@
                 { name: 'name', label: 'Image name', widget: 'string' },
                 { name: 'centered', label: 'Centered', widget: 'boolean' }
             ],
-            pattern: /^!\[(\S*)\]\((\S*)\)({\.\S*})?$/,
+            pattern: /^O\[(\S*)\]\((\S*)\)({\.\S*})?$/,
             fromBlock: match => {
                 return match && {
                     src: match[1],
@@ -42,7 +42,7 @@
                 }
             },
             toBlock: o =>
-                `![${o.name || ''}](${o.src || ''})${o.centered ? '{.has-text-centered}' : ''}`,
+                `O[${o.name || ''}](${o.src || ''})${o.centered ? '{.has-text-centered}' : ''}`,
             toPreview: (o, getAsset) => {
                 return
                     `<img src="${getAsset(o.src) || ''}" class="${o.centered ? 'has-text-centered' : ''}" />`
