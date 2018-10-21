@@ -33,12 +33,12 @@
             // Fields the user need to fill out when adding an instance of the component
             fields: [
                 { name: 'src', label: 'Image', widget: 'image' },
-                { name: 'alt', label: 'Alt Text' },
-                { name: 'width', label: 'Width' },
-                { name: 'height', label: 'Height' },
+                { name: 'alt', label: 'Alt Text', default: 'Image' },
+                { name: 'width', label: 'Width', default: '100%' },
+                { name: 'height', label: 'Height', default: '100%' }
             ],
             // Pattern to identify a block as being an instance of this component
-            pattern: /^<img src=(.+) alt=(.+) width=(.+) height=(.+) \/>$/,
+            pattern: /^<img src="(.+)" alt="(.+)" width="(.+)" height="(.+)" \/>$/,
             // Function to extract data elements from the regexp match
             fromBlock: function (match) {
                 return match && {
@@ -50,12 +50,12 @@
             },
             // Function to create a text block from an instance of this component
             toBlock: function(o) {
-                return `<img src=${o.src || ''} alt=${o.alt || ''} width=${o.width || ''} height=${o.height || ''} />`
+                return `<img src="${o.src || ''}" alt="${o.alt || ''}" width="${o.width || ''}" height="${o.height || ''}" />`
             },
             // Preview output for this component. Can either be a string or a React component
             // (component gives better render performance)
             toPreview: function(o, getAsset) {
-                return `<img src=${getAsset(o.src) || ''} alt=${o.alt || ''} width=${o.width || ''} height=${o.height || ''} />`
+                return `<img src="${getAsset(o.src) || ''}" alt="${o.alt || ''}" width="${o.width || ''}" height="${o.height || ''}" />`
             }
         });
     </script>
