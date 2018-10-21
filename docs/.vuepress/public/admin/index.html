@@ -9,7 +9,7 @@
 
 <body>
     <!-- Include the script that builds the page and powers Netlify CMS -->
-    <script src="https://unpkg.com/netlify-cms@2.1.0/dist/netlify-cms.js"></script>
+    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
     <script>
         CMS.registerPreviewStyle("./bulma.min.css");
         var PostPreview = createClass({
@@ -32,10 +32,10 @@
             label: "Super Image",
             // Fields the user need to fill out when adding an instance of the component
             fields: [
-                { name: 'src', label: 'Image', widget: 'image' },
+                { name: 'src', label: 'Image', widget: 'image', default: 'hi' },
                 { name: 'alt', label: 'Alt Text', widget: 'string', default: 'whattheheck' },
-                { name: 'width', label: 'Width' },
-                { name: 'height', label: 'Height' }
+                { name: 'width', label: 'Width', default: '100' },
+                { name: 'height', label: 'Height', default: '100' }
             ],
             // Pattern to identify a block as being an instance of this component
             pattern: /^<img src="(.+)" alt="(.+)" width="(.+)" height="(.+)" \/>$/,
