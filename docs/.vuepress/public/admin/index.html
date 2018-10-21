@@ -30,20 +30,22 @@
             label: 'Image',
             fields: [
                 { name: 'src', label: 'Image source', widget: 'image' },
+                { name: 'name', label: 'Image name', widget: 'string' },
                 { name: 'centered', label: 'Centered', widget: 'boolean' }
             ],
-            pattern: /^<img src="(.*)" class="(.*)"\s*\/>$/,
-            fromBlock: function(match) {
+            pattern: /^\[(\S*)\]\((\S*)\)({\.\S*})?$/,
+            fromBlock: match => {
                 return match && {
                     src: match[1],
-                    centered: match.length > 2 && match[2] === 'has-text-centered'
+                    name: match[2],
+                    centered: match.length > 3 && match[3] === 'has-text-centered'
                 }
             },
-            toBlock: function(o) {
-                return `<img src="${o.src || ''}" class="${o.centered ? 'has-text-centered' : ''}" />`
-            },
-            toPreview: function(o, getAsset) {
-                return `<img src="${getAsset(o.src) || ''}" class="${o.centered ? 'has-text-centered' : ''}" />`
+            toBlock: o =>
+                `[${o.name || ''}](${o.src || ''})${o.centered ? '{.has-text-centered}' : ''}`,
+            toPreview: (o, getAsset) => {
+                return
+                    `<img src="${getAsset(o.src) || ''}" class="${o.centered ? 'has-text-centered' : ''}" />`
             }
         })
     </script>
