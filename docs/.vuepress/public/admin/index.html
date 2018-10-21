@@ -33,19 +33,39 @@
                 { name: 'name', label: 'Image name', widget: 'string' },
                 { name: 'centered', label: 'Centered', widget: 'boolean' }
             ],
-            pattern: /^O\[(\S*)\]\((\S*)\)({\.\S*})?$/,
+            pattern: /^<img src="(.*)" class="(.*)"\s*\/>$/,
             fromBlock: match => {
                 return match && {
                     src: match[1],
-                    name: match[2],
-                    centered: match.length > 3 && match[3] === 'has-text-centered'
+                    centered: match.length > 2 && match[2] === 'has-text-centered'
                 }
             },
             toBlock: o =>
-                `O[${o.name || ''}](${o.src || ''})${o.centered ? '{.has-text-centered}' : ''}`,
+                `[${o.name || ''}](${o.src || ''})${o.centered ? '{.has-text-centered}' : ''}`,
             toPreview: (o, getAsset) => {
                 return
                     `<img src="${getAsset(o.src) || ''}" class="${o.centered ? 'has-text-centered' : ''}" />`
+            }
+        })
+        CMS.registerEditorComponent({
+            id: 'classed',
+            label: 'Classed',
+            fields: [
+                { name: 'text', label: 'Text' },
+                { name: 'class', label: 'Class' }
+            ],
+            pattern: /^(.*){\.(.*)}$/,
+            fromBlock: match => {
+                return match && {
+                    text: match[1],
+                    class: match[2]
+                }
+            },
+            toBlock: o =>
+                `${o.text}{.${o.class}}`,
+            toPreview: (o, getAsset) => {
+                return
+                    `<p class="${o.class}">${o.text}</p>`
             }
         })
     </script>
