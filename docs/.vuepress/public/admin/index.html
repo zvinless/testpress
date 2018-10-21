@@ -33,18 +33,18 @@
                 { name: 'name', label: 'Image name', widget: 'string' },
                 { name: 'centered', label: 'Centered', widget: 'boolean' }
             ],
-            pattern: /^<img src="(.*)" class="(.*)"\s*\/>$/,
+            pattern: /^<img src="(.*)" alt="(.*)" class="(.*)"\s*\/>$/,
             fromBlock: match => {
                 return match && {
                     src: match[1],
-                    centered: match.length > 2 && match[2] === 'has-text-centered'
+                    name: match[2],
+                    centered: match.length > 3 && match[3] === 'has-text-centered'
                 }
             },
             toBlock: o =>
-                `[${o.name || ''}](${o.src || ''})${o.centered ? '{.has-text-centered}' : ''}`,
-            toPreview: (o, getAsset) => {
-                return `<img src="${getAsset(o.src) || ''}" class="${o.centered ? 'has-text-centered' : ''}" />`
-            }
+                `<img src="${o.src}" alt="${o.name}" class="${o.centered ? 'has-text-centered' : ''}" />`,
+            toPreview: (o, getAsset) =>
+                `<img src="${getAsset(o.src)}" alt="${o.name}" class="${o.centered ? 'has-text-centered' : ''}" />`,
         })
         CMS.registerEditorComponent({
             id: 'classed',
@@ -64,25 +64,25 @@
             toPreview: (o, getAsset) => h('p', { className: o.class }, o.text)
         })
         CMS.registerEditorComponent({
-      id: "youtube",
-      label: "Youtube",
-      icon: 'video',
-      fields: [{name: 'id', label: 'Youtube Video ID'}],
-      pattern: /^{{<\s?youtube (\S+)\s?>}}/,
-      fromBlock: function(match) {
-        return {
-          id: match[1]
-        };
-      },
-      toBlock: function(obj) {
-        return '{{< youtube ' + obj.id + ' >}}';
-      },
-      toPreview: function(obj) {
-        return (
-          '<img src="http://img.youtube.com/vi/' + obj.id + '/maxresdefault.jpg" alt="Youtube Video"/>'
-        );
-      }
-    });
+            id: "youtube",
+            label: "Youtube",
+            icon: 'video',
+            fields: [{ name: 'id', label: 'Youtube Video ID' }],
+            pattern: /^{{<\s?youtube (\S+)\s?>}}/,
+            fromBlock: function (match) {
+                return {
+                    id: match[1]
+                };
+            },
+            toBlock: function (obj) {
+                return '{{< youtube ' + obj.id + ' >}}';
+            },
+            toPreview: function (obj) {
+                return (
+                    '<img src="http://img.youtube.com/vi/' + obj.id + '/maxresdefault.jpg" alt="Youtube Video"/>'
+                );
+            }
+        });
     </script>
 </body>
 
