@@ -26,40 +26,32 @@
 
         CMS.registerPreviewTemplate("docs", PostPreview);
         CMS.registerEditorComponent({
-            id: "superimage",
-            label: "Super Image",
-            fields: [
-                { name: 'src', label: 'Image source', widget: 'image', required: true },
-                { name: 'name', label: 'Image name', widget: 'string', default: 'image' },
-                { name: 'width', label: 'Width', widget: 'string', default: '100%' },
-                { name: 'height', label: 'Height', widget: 'string', default: '100%' },
-                { name: 'centered', label: 'Centered', widget: 'boolean', default: true }
-            ],
-            pattern: /aaaaa/, ///^\s*?<img src=(\S+) alt=(\S+) width=(\S+) height=(\S+)\/>/,
-            fromBlock: function(match) {
+            // Internal id of the component
+            id: "youtube",
+            // Visible label
+            label: "Youtube",
+            // Fields the user need to fill out when adding an instance of the component
+            fields: [{ name: 'id', label: 'Youtube Video ID', widget: 'string' }],
+            // Pattern to identify a block as being an instance of this component
+            pattern: /^youtube (\S+)$/,
+            // Function to extract data elements from the regexp match
+            fromBlock: function (match) {
                 return {
-                    src: 'abcdefg',
-                    name: 'asdf',
-                    width: '100%',
-                    height: '100%',
-                    centered: true
-                }
-                // return {
-                //     src: match[1],
-                //     name: match[2],
-                //     width: match[3],
-                //     height: match[4]
-                // }
+                    id: match[1]
+                };
             },
-            toBlock: function(o) {
-                return 'aaaaa'
-                // return `<img src=${o.src} alt=${o.name} width=${o.width} height=${o.height}/>`
+            // Function to create a text block from an instance of this component
+            toBlock: function (obj) {
+                return 'youtube ' + obj.id;
             },
-            toPreview: function(o) {
-                return 'aaaaa'
-                // return `<img src=${o.src} alt=${o.name} width=${o.width} height=${o.height}/>`
+            // Preview output for this component. Can either be a string or a React component
+            // (component gives better render performance)
+            toPreview: function (obj) {
+                return (
+                    '<img src="http://img.youtube.com/vi/' + obj.id + '/maxresdefault.jpg" alt="Youtube Video"/>'
+                );
             }
-        })
+        });
     </script>
 </body>
 
