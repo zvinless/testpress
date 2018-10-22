@@ -11,3 +11,5 @@ no more table :(
 <SuperImage src="/img/screenshot2.png" alt="hi" centered="true"/>
 
 edit2
+
+a
