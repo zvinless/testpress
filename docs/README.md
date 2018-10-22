@@ -10,6 +10,10 @@ no more table :(
 
 <SuperImage src="/img/screenshot2.png" alt="hi" centered="true"/>
 
+[newpost](/new-post.md)
+
+[otherpost](/test/hello.md)
+
 edit2
 
 a
