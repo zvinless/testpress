@@ -7,4 +7,4 @@ more test
 
 no more table :(
 
-<SuperImage src="/img/screenshot2.png" alt="hi" centered="true"/>
+<SuperImage src="/img/screenshot2.png" alt="hi" centered="true" />
