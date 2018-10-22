@@ -10,4 +10,4 @@ no more table :(
 
 <SuperImage src="/img/screenshot2.png" alt="hi" centered="true"/>
 
-edit
+edit2
