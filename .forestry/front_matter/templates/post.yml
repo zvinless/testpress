@@ -17,7 +17,6 @@ fields:
   label: Tags
   name: tags
 pages:
-- what.html
 - docs/new-post.md
 - docs/new-post-x.md
 - docs/fresh-new-post.md
