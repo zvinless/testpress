@@ -17,6 +17,7 @@ fields:
   label: Tags
   name: tags
 pages:
+- docs/dyala-test.md
 - docs/post.md
 - docs/fresh-new-post.md
 - docs/new-post-x.md
