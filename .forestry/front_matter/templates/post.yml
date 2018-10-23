@@ -17,6 +17,13 @@ fields:
   label: Tags
   name: tags
 pages:
+- docs/new-post.md
+- docs/new-post-x.md
+- docs/fresh-new-post.md
+- docs/post.md
+- docs/dyala-test.md
+- docs/what.md
+- docs/adsfasdfasdf.md
 - docs/adsfasdfasdf.md
 - docs/what.md
 - docs/dyala-test.md

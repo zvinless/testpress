@@ -9,7 +9,7 @@ sections:
   label: Not Posts
   create: all
   match: "**/*"
-  new_doc_ext: ".html"
+  new_doc_ext: html
   templates:
   - post
 - type: directory
