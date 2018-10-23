@@ -5,6 +5,14 @@ admin_path: docs/.vuepress/public/admin
 webhook_url: 
 sections:
 - type: directory
+  path: ''
+  label: Not Posts
+  create: all
+  match: "**/*"
+  new_doc_ext: ".html"
+  templates:
+  - post
+- type: directory
   path: docs
   label: Posts
   create: documents
