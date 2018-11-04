@@ -1,5 +1,5 @@
 [build]
   publish = "docs/.vuepress/dist"
 [build.environment]
-  NODE_VERSION = "v10.13.0"
+  NODE_VERSION = "v11.1.0"
   YARN_VERSION = "1.12.1"
