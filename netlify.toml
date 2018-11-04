@@ -1,6 +1,6 @@
 [build]
-  publish = "public"
-  command = "yarn build"
+  publish = "docs/.vuepress/dist"
+  command = "yarn docs:build"
 [build.environment]
   NODE_ENV = "production"
   NODE_VERSION = "v11.1.0"
