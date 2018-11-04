@@ -1,6 +1,6 @@
 [build]
   publish = "docs/.vuepress/dist"
-  command = "yarn docs:build"
+  command = "node ./node_modules/@vuepress/cli/index.js build docs"
 [build.environment]
   NODE_ENV = "production"
   NODE_VERSION = "v10.13.0"
