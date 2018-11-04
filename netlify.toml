@@ -3,5 +3,5 @@
   command = "yarn docs:build"
 [build.environment]
   NODE_ENV = "production"
-  NODE_VERSION = "v11.1.0"
+  NODE_VERSION = "v10.13.0"
   YARN_VERSION = "1.12.1"
